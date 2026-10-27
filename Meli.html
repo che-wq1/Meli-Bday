@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#fff4f5">
+<title>Happy Birthday Meli! 💗</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --ink: #482c3c;
+  --pink: #f7a9bd;
+  --rose: #e85d82;
+  --cream: #fff7ef;
+  --gold: #c48a42;
+  --plum: #6c405a;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  height: 100%;
+  background: var(--cream);
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  min-height: 100dvh;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: "DM Sans", sans-serif;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.scene {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: calc(22px + env(safe-area-inset-top)) 18px calc(22px + env(safe-area-inset-bottom));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: radial-gradient(ellipse at top, #ffe4e9 0%, var(--cream) 58%);
+}
+
+.scene.active {
+  display: flex;
+  animation: appear .65s ease both;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h1, h2, h3 {
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  margin: 0 0 14px;
+}
+
+h1 {
+  font-size: clamp(2.25rem, 8vw, 4.2rem);
+  line-height: 1.06;
+}
+
+h2 { font-size: clamp(1.8rem, 6vw, 2.8rem); }
+
+p {
+  line-height: 1.65;
+  max-width: 550px;
+  margin: 0 auto 14px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-size: .7rem;
+  font-weight: 700;
+  color: var(--plum);
+  margin-bottom: 15px;
+}
+
+.btn {
+  border: 0;
+  background: var(--rose);
+  color: white;
+  border-radius: 999px;
+  padding: 15px 22px;
+  font: 700 1rem "DM Sans", sans-serif;
+  margin-top: 18px;
+  cursor: pointer;
+  box-shadow: 0 8px 22px #e85d8238;
+  transition: transform .2s;
+  touch-action: manipulation;
+}
+
+.btn:active { transform: scale(.97); }
+
+.soft {
+  background: #fff;
+  color: var(--plum);
+  border: 1px solid #f0c4ce;
+  box-shadow: none;
+}
+
+.heart {
+  font-size: 4rem;
+  animation: beat 1.4s infinite;
+  filter: drop-shadow(0 8px 12px #e85d8230);
+}
+
+@keyframes beat {
+  50% { transform: scale(1.1); }
+}
+
+.paper {
+  width: min(100%, 560px);
+  background: #fffdf9;
+  border: 1px solid #f3d9d5;
+  border-radius: 24px;
+  padding: clamp(20px, 5vw, 34px);
+  box-shadow: 0 18px 55px #75445a12;
+}
+
+.tiny {
+  font-size: .84rem;
+  color: #946d7d;
+}
+
+.countdown {
+  display: inline-block;
+  margin: 10px auto 0;
+  padding: 12px 18px;
+  border: 1px solid #f0c4ce;
+  border-radius: 18px;
+  background: #fff9f7;
+  color: var(--plum);
+}
+
+.countdown-label {
+  font-size: .7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.countdown-time {
+  font: 600 clamp(1.1rem, 4vw, 1.6rem) "Playfair Display", serif;
+  font-variant-numeric: tabular-nums;
+}
+
+.food-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  width: min(100%, 520px);
+  margin: 18px auto;
+}
+
+.food-option {
+  border: 2px solid #f2d2db;
+  background: #fff;
+  border-radius: 16px;
+  padding: 8px;
+  cursor: pointer;
+  font: 600 .9rem "DM Sans", sans-serif;
+  color: var(--ink);
+}
+
+.food-option img {
+  width: 100%;
+  height: clamp(90px, 15vh, 150px);
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.all-option {
+  animation: popChoice .75s ease-in-out infinite alternate;
+  box-shadow: 0 0 0 4px #e85d8220;
+}
+
+@keyframes popChoice {
+  from { transform: scale(1); }
+  to { transform: scale(1.07); box-shadow: 0 0 0 7px #e85d8230; }
+}
+
+.sky {
+  position: relative;
+  width: min(100%, 600px);
+  height: clamp(240px, 43vh, 380px);
+  border-radius: 24px;
+  overflow: hidden;
+  margin: 18px auto;
+  background: linear-gradient(#bfe6fa, #fff0e6 70%, #d9e7c8);
+  box-shadow: 0 14px 35px #75445a17;
+}
+
+.sky img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sky .chicago {
+  opacity: 1;
+  animation: chicagoOut 10s ease-in-out forwards;
+}
+
+.sky .sikkim {
+  opacity: 0;
+  animation: sikkimIn 10s ease-in-out forwards;
+}
+
+@keyframes chicagoOut {
+  0%, 28% { opacity: 1; }
+  82%, 100% { opacity: 0; }
+}
+
+@keyframes sikkimIn {
+  0%, 30% { opacity: 0; }
+  75%, 100% { opacity: 1; }
+}
+
+.cloud {
+  position: absolute;
+  font-size: 2.1rem;
+  animation: cloudDrift 6s ease-in-out infinite alternate;
+  filter: drop-shadow(0 3px 3px #fff8);
+  z-index: 2;
+}
+
+.cloud.c1 { top: 12%; left: 5%; }
+.cloud.c2 { top: 27%; right: 8%; animation-delay: -2s; }
+
+.plane {
+  position: absolute;
+  left: 8%;
+  top: 48%;
+  z-index: 4;
+  font-size: 2.7rem;
+  filter: drop-shadow(0 4px 5px #6334);
+  animation: planeJourney 10s cubic-bezier(.35,.1,.5,1) forwards;
+}
+
+@keyframes cloudDrift {
+  to { transform: translate(15px, -5px); }
+}
+
+@keyframes planeJourney {
+  0% { left: 5%; top: 52%; transform: rotate(-10deg); }
+  18% { left: 24%; top: 25%; transform: rotate(12deg); }
+  34% { left: 41%; top: 56%; transform: rotate(-17deg); }
+  51% { left: 57%; top: 27%; transform: rotate(16deg); }
+  69% { left: 72%; top: 49%; transform: rotate(-8deg); }
+  85% { left: 84%; top: 30%; transform: rotate(12deg); }
+  100% { left: 82%; top: 54%; transform: rotate(0deg) scale(.8); }
+}
+
+.flight-status {
+  font-weight: 700;
+  color: var(--plum);
+  min-height: 28px;
+}
+
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+  width: min(100%, 620px);
+  margin: 18px auto;
+}
+
+.memory {
+  background: white;
+  padding: 9px 9px 14px;
+  border-radius: 8px;
+  box-shadow: 0 7px 20px #6c405a15;
+  transform: rotate(-1.5deg);
+}
+
+.memory:nth-child(even) { transform: rotate(1.5deg); }
+
+.memory img {
+  display: block;
+  width: 100%;
+  height: clamp(135px, 23vh, 230px);
+  object-fit: cover;
+  border-radius: 4px;
+  background: #fff0f2;
+}
+
+.memory p {
+  font: italic 1rem "Playfair Display", serif;
+  margin: 10px 0 0;
+  line-height: 1.4;
+}
+
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 135px;
+  background: #fff0f2;
+  color: #a86c80;
+  padding: 12px;
+  font-size: .88rem;
+}
+
+.food-card {
+  width: min(100%, 430px);
+  border-radius: 22px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 12px 35px #75445a16;
+  margin: 14px auto;
+}
+
+.food-card img {
+  width: 100%;
+  height: clamp(180px, 30vh, 280px);
+  object-fit: cover;
+  display: block;
+  background: #fff0f2;
+}
+
+.food-card .food-caption { padding: 16px; }
+
+.game-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: min(100%, 400px);
+  margin: 18px auto;
+}
+
+.game-option {
+  background: white;
+  border: 2px solid #f3d2db;
+  border-radius: 18px;
+  padding: 17px 10px;
+  font: 600 1rem "DM Sans", sans-serif;
+  color: var(--ink);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.game-option:active { background: #ffe1e9; }
+
+.cake {
+  font-size: 6.5rem;
+  line-height: 1.3;
+  cursor: pointer;
+  filter: drop-shadow(0 8px 12px #6c405a15);
+  touch-action: manipulation;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.cake-emoji { display: block; }
+
+.candle-emoji {
+  position: absolute;
+  top: -.16em;
+  left: 51%;
+  font-size: 2.1rem;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 0 8px #ffb347);
+  transition: opacity .25s, transform .25s;
+}
+
+.candle-emoji.out {
+  opacity: 0;
+  transform: translate(-50%, -12px) scale(.6);
+}
+
+#mic-blow-btn { margin-top: 8px; }
+
+#finale {
+  background: radial-gradient(ellipse at 50% 20%, #f9d5df 0%, #f7e7e4 45%, #fff7ef 100%);
+  overflow: hidden;
+}
+
+#compliment-layer {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.compliment {
+  position: absolute;
+  max-width: 88vw;
+  color: #9b365e;
+  font: 600 clamp(1.05rem, 3.5vw, 1.7rem) "Playfair Display", serif;
+  text-shadow: 0 2px 0 #fff8;
+  white-space: normal;
+  animation: floatUp 3.3s ease-out forwards;
+  pointer-events: none;
+}
+
+.compliment.fun {
+  color: #7c4d99;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  font-size: clamp(.95rem, 3vw, 1.25rem);
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(25px) rotate(var(--tilt)) scale(.75); opacity: 0; }
+  12% { opacity: 1; }
+  78% { opacity: 1; }
+  100% { transform: translateY(-70vh) rotate(var(--tilt)) scale(1.08); opacity: 0; }
+}
+
+.finale-content {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 590px);
+  max-height: 100%;
+  overflow-y: auto;
+  padding: 18px 8px;
+}
+
+.final-letter {
+  display: none;
+  background: #fffdf9ed;
+  border: 1px solid #f1d4dc;
+  border-radius: 24px;
+  padding: 24px;
+  margin: 20px auto 12px;
+  box-shadow: 0 14px 35px #75445a12;
+}
+
+.final-letter.show {
+  display: block;
+  animation: appear .9s ease both;
+}
+
+.final-letter p {
+  font-family: "Playfair Display", serif;
+  font-size: 1.06rem;
+}
+
+@media (max-width: 420px) {
+  .scene { padding-left: 14px; padding-right: 14px; }
+  .memory-grid { gap: 10px; }
+  .memory p { font-size: .92rem; }
+  .btn { max-width: 100%; }
+  .sky { height: 260px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<audio id="birthdayMusic" loop preload="auto">
+  <source src="assets/birthday.mp3" type="audio/mpeg">
+</audio>
+
+<section id="intro" class="scene active">
+  <div class="heart">💌</div>
+  <div class="eyebrow">A very important delivery · USA → Sikkim</div>
+  <h1>Happy Birthday<br>Meli! 💗</h1>
+  <p>A tiny surprise from your favorite long-distance nuisance. Made with approximately 73% love and 27% dramatic feelings.</p>
+  <p class="tiny">Warning: may cause smiling at your phone. Side effects are encouraged.</p>
+
+  <div class="countdown">
+    <div class="countdown-label">Until your birthday · India time</div>
+    <div class="countdown-time" id="birthday-timer">Counting down to your day…</div>
+  </div>
+
+  <button class="btn" onclick="startJourney()">Open your birthday surprise ✨</button>
+</section>
+
+<section id="flight" class="scene">
+  <div class="paper">
+    <div class="eyebrow">Operation: get to you</div>
+    <h2>Love is taking the scenic route.</h2>
+    <p id="flight-caption">Departing the USA… the pilot has feelings and absolutely no sense of direction.</p>
+
+    <div class="sky">
+      <img class="chicago" src="assets/chicago.jpg" alt="Chicago slowly fading away" onerror="this.style.display='none'">
+      <img class="sikkim" src="assets/sikkim.jpg" alt="The mountains of Sikkim" onerror="this.style.display='none'">
+      <span class="cloud c1">☁️</span>
+      <span class="cloud c2">☁️</span>
+      <span class="plane" aria-label="A little plane flying">✈️</span>
+    </div>
+
+    <div id="flight-status" class="flight-status">Taking off… please keep arms, legs, and feelings inside the aircraft.</div>
+    <p class="tiny">✈️🏔️💗</p>
+    <button class="btn" id="skip-flight" onclick="landPlane()" style="display:none">Land this emotional aircraft 💗</button>
+  </div>
+</section>
+
+<section id="welcome" class="scene">
+  <div class="heart">🏡</div>
+  <div class="eyebrow">Touchdown: Sikkim</div>
+  <h2>YOU MADE IT! 🎉</h2>
+  <p>Long journey? Tired? Hungry? Excellent. Your very loving, very unofficial birthday support team has prepared emergency snacks.</p>
+  <p>Before the photo reveal, you must pass one extremely serious snack-related test.</p>
+  <button class="btn" onclick="nextScene('game')">I require snacks immediately 🍽️</button>
+</section>
+
+<section id="game" class="scene">
+  <div class="eyebrow">The snack emergency game</div>
+  <h2>Choose your feast.</h2>
+  <p>You’ve just landed and you’re tired. What do you want? There is only one correct answer. 😌</p>
+
+  <div class="food-options">
+    <button class="food-option" onclick="wrongSnack('Momo')">
+      <img src="assets/momo.jpg" alt="Momo" onerror="this.style.display='none'">
+      Momo 🥟
+    </button>
+    <button class="food-option" onclick="wrongSnack('Chai')">
+      <img src="assets/chai.jpg" alt="Chai" onerror="this.style.display='none'">
+      Chai ☕
+    </button>
+    <button class="food-option" onclick="wrongSnack('Laphing')">
+      <img src="assets/laphing.jpg" alt="Laphing" onerror="this.style.display='none'">
+      Laphing 🌶️
+    </button>
+  </div>
+
+  <button class="btn all-option" id="all-food-btn" onclick="chooseAllFood()">ALL OF THE ABOVE 😤💗</button>
+  <p id="game-response" class="flight-status" aria-live="polite">Psst… the answer is the big pink button.</p>
+</section>
+
+<section id="food" class="scene">
+  <div class="eyebrow">Emergency snacks, delivered</div>
+  <h2>All three. Obviously. 💗</h2>
+  <p>You’ve earned a rest. No choosing, no sharing. It’s your birthday week.</p>
+
+  <div class="food-options">
+    <div class="food-option">
+      <img src="assets/momo.jpg" alt="Momo" onerror="this.style.display='none'">
+      Momo 🥟
+    </div>
+    <div class="food-option">
+      <img src="assets/chai.jpg" alt="Chai" onerror="this.style.display='none'">
+      Chai ☕
+    </div>
+    <div class="food-option">
+      <img src="assets/laphing.jpg" alt="Laphing" onerror="this.style.display='none'">
+      Laphing 🌶️
+    </div>
+  </div>
+
+  <p class="tiny">Birthday law: snacks first, everything else later.</p>
+  <button class="btn" onclick="nextScene('portraits')">Now show me my surprise 💌</button>
+</section>
+
+<section id="portraits" class="scene">
+  <div class="eyebrow">A tiny gallery dedicated to you</div>
+  <h2>Just look at you. 💗</h2>
+  <p>Six little reminders of how lovely you are.</p>
+
+  <div class="memory-grid">
+    <div class="memory">
+      <img src="assets/photo1.jpeg" alt="Meli" loading="eager" onerror="showPhotoFallback(this, 'photo1.jpeg')">
+      <p>Absolutely lovely</p>
+    </div>
+    <div class="memory">
+      <img src="assets/photo2.jpeg" alt="Meli" loading="lazy" onerror="showPhotoFallback(this, 'photo2.jpeg')">
+      <p>Pure sunshine</p>
+    </div>
+    <div class="memory">
+      <img src="assets/photo3.jpeg" alt="Meli" loading="lazy" onerror="showPhotoFallback(this, 'photo3.jpeg')">
+      <p>Effortlessly elegant</p>
+    </div>
+    <div class="memory">
+      <img src="assets/photo4.jpeg" alt="Meli" loading="lazy" onerror="showPhotoFallback(this, 'photo4.jpeg')">
+      <p>Ridiculously cute</p>
+    </div>
+    <div class="memory">
+      <img src="assets/photo5.jpeg" alt="Meli" loading="lazy" onerror="showPhotoFallback(this, 'photo5.jpeg')">
+      <p>Simply gorgeous</p>
+    </div>
+    <div class="memory">
+      <img src="assets/photo6.jpeg" alt="Meli" loading="lazy" onerror="showPhotoFallback(this, 'photo6.jpeg')">
+      <p>Beautiful soul</p>
+    </div>
+  </div>
+
+  <button class="btn" onclick="nextScene('cake')">Now, birthday girl… make a wish 🎂</button>
+</section>
+
+<section id="cake" class="scene">
+  <div class="eyebrow">28 October 🇮🇳</div>
+  <h2 id="cake-title">Your wish deserves a little magic.</h2>
+  <p id="cake-sub">Take a breath, close your eyes, and make a wish. I’m wishing for a year that is kind to you.</p>
+
+  <div class="cake" id="cake-body" role="button" tabindex="0" aria-label="Tap to blow out the birthday candle" onclick="blowCandle()">
+    <span class="cake-emoji">🍰</span>
+    <span class="candle-emoji" id="candle-flame" aria-hidden="true">🕯️</span>
+  </div>
+
+  <p id="cake-hint" class="tiny">Make a wish, then blow toward your microphone — or just tap the candle if you prefer. ✨</p>
+  <button class="btn soft" id="mic-blow-btn" onclick="startBlowDetection()">🌬️ Try blowing it out with your breath</button>
+  <p id="mic-status" class="tiny" aria-live="polite">Microphone is optional. Tapping the cake always works. 💗</p>
+  <button class="btn" id="cake-next" style="display:none" onclick="nextScene('finale')">Prepare for an unreasonable amount of love 💗</button>
+</section>
+
+<section id="finale" class="scene">
+  <div id="compliment-layer"></div>
+
+  <div class="finale-content">
+    <h2 id="final-title">Incoming: a ridiculous amount of love.</h2>
+    <p id="final-sub">Brace yourself. Compliments, hearts, sparkles, and absolutely no emotional restraint are on the way.</p>
+
+    <div id="final-letter" class="final-letter">
+      <div class="heart" style="font-size:2.6rem">💖</div>
+      <div class="eyebrow">A little birthday message</div>
+      <h2>Happy Birthday Meli! 💗</h2>
+      <p>I wish I could be there with you today, but I hope this little surprise makes you smile.</p>
+      <p>Thank you for being in my life and making even ordinary days feel special. I’m so grateful for you, for your love, and for all the little things that make you you.</p>
+      <p>I hope this year brings you lots of happiness, good surprises, and everything you’ve been wishing for. I love you so much. Happy birthday. ❤️</p>
+      <button class="btn soft" onclick="replayCompliments()">One more love avalanche, please ☔💗</button>
+    </div>
+  </div>
+</section>
+
+<script>
+const birthdayMusic = document.getElementById('birthdayMusic');
+
+let flightDone = false;
+let flightTimeout = null;
+let flightStatusTimer = null;
+let complimentTimers = [];
+let revealTimer = null;
+
+function showPhotoFallback(img, filename) {
+  const placeholder = document.createElement('div');
+  placeholder.className = 'placeholder';
+  placeholder.textContent = 'Photo not found: ' + filename;
+
+  img.replaceWith(placeholder);
+}
+
+function playBirthdayMusic() {
+  birthdayMusic.play().catch(() => {});
+}
+
+function nextScene(id) {
+  document.querySelectorAll('.scene').forEach(scene => {
+    scene.classList.remove('active');
+  });
+
+  document.getElementById(id).classList.add('active');
+
+  if (id === 'finale') {
+    beginLoveAvalanche();
+  }
+}
+
+function startJourney() {
+  playBirthdayMusic();
+  nextScene('flight');
+  startFlight();
+}
+
+function startFlight() {
+  const status = document.getElementById('flight-status');
+  const caption = document.getElementById('flight-caption');
+  const skip = document.getElementById('skip-flight');
+
+  const messages = [
+    'Taking off… please keep arms, legs, and feelings inside the aircraft.',
+    'A small detour. The pilot saw a cloud shaped like a heart. ☁️',
+    'Turbulence detected. Cause: an excessive amount of love. 💗',
+    'Somewhere over the mountains… the pilot is pretending this was planned.',
+    'Sikkim spotted! Everyone remain calm. Or don’t. 🎉',
+    'Landing in Sikkim. Delivery: one birthday surprise, extra love. 🏔️'
+  ];
+
+  let i = 0;
+
+  status.textContent = messages[0];
+
+  flightStatusTimer = setInterval(() => {
+    i = Math.min(i + 1, messages.length - 1);
+    status.textContent = messages[i];
+
+    if (i === 2) {
+      caption.textContent = 'Chicago is fading away… look at those mountains coming into view.';
+    }
+  }, 1450);
+
+  flightTimeout = setTimeout(() => landPlane(), 10000);
+
+  setTimeout(() => {
+    if (!flightDone) {
+      skip.style.display = 'inline-block';
+    }
+  }, 3500);
+}
+
+function landPlane() {
+  if (flightDone) return;
+
+  flightDone = true;
+  clearTimeout(flightTimeout);
+  clearInterval(flightStatusTimer);
+
+  document.getElementById('flight-status').textContent =
+    'Touchdown! The pilot would like a five-star review and a hug. ✈️💗';
+
+  document.getElementById('skip-flight').style.display = 'none';
+
+  setTimeout(() => nextScene('welcome'), 950);
+}
+
+function wrongSnack(choice) {
+  const responses = {
+    Momo: 'Only momo? The chai and laphing are feeling left out. Try again. 😌',
+    Chai: 'Just chai?! The snacks are a package deal, birthday girl. Try again. ☕',
+    Laphing: 'Laphing alone? Bold choice. But you know the rule: ALL OF THEM. 😤'
+  };
+
+  document.getElementById('game-response').textContent = responses[choice];
+
+  const button = document.getElementById('all-food-btn');
+  button.classList.remove('all-option');
+  void button.offsetWidth;
+  button.classList.add('all-option');
+}
+
+function chooseAllFood() {
+  document.getElementById('game-response').textContent =
+    'CORRECT. A genius. A legend. Snacks secured. 👑💗';
+
+  document.getElementById('all-food-btn').classList.remove('all-option');
+
+  setTimeout(() => nextScene('food'), 750);
+}
+
+let candleBlown = false;
+let micStream = null;
+let micFrame = null;
+
+function playBlowSound() {
+  try {
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContextClass) return;
+
+    const ctx = new AudioContextClass();
+
+    if (ctx.state === 'suspended') {
+      ctx.resume();
+    }
+
+    const length = Math.floor(ctx.sampleRate * 0.42);
+    const buffer = ctx.createBuffer(1, length, ctx.sampleRate);
+    const data = buffer.getChannelData(0);
+
+    for (let i = 0; i < length; i++) {
+      const fade = 1 - i / length;
+      data[i] = (Math.random() * 2 - 1) * fade * fade * 0.28;
+    }
+
+    const noise = ctx.createBufferSource();
+    noise.buffer = buffer;
+
+    const filter = ctx.createBiquadFilter();
+    filter.type = 'lowpass';
+    filter.frequency.setValueAtTime(1500, ctx.currentTime);
+    filter.frequency.exponentialRampToValueAtTime(260, ctx.currentTime + 0.4);
+
+    const gain = ctx.createGain();
+    gain.gain.setValueAtTime(0.001, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.22, ctx.currentTime + 0.035);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.42);
+
+    noise.connect(filter);
+    filter.connect(gain);
+    gain.connect(ctx.destination);
+
+    noise.start();
+    noise.stop(ctx.currentTime + 0.43);
+
+    const osc = ctx.createOscillator();
+    const bell = ctx.createGain();
+
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(880, ctx.currentTime + 0.24);
+    osc.frequency.exponentialRampToValueAtTime(1320, ctx.currentTime + 0.55);
+
+    bell.gain.setValueAtTime(0.001, ctx.currentTime + 0.23);
+    bell.gain.exponentialRampToValueAtTime(0.09, ctx.currentTime + 0.28);
+    bell.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.8);
+
+    osc.connect(bell);
+    bell.connect(ctx.destination);
+
+    osc.start(ctx.currentTime + 0.23);
+    osc.stop(ctx.currentTime + 0.82);
+  } catch (error) {
+    // Sound is optional; the birthday interaction still works.
+  }
+}
+
+function blowCandle() {
+  if (candleBlown) return;
+
+  candleBlown = true;
+
+  if (micFrame) {
+    cancelAnimationFrame(micFrame);
+  }
+
+  if (micStream) {
+    micStream.getTracks().forEach(track => track.stop());
+    micStream = null;
+  }
+
+  document.getElementById('candle-flame').classList.add('out');
+  document.getElementById('cake-title').textContent = 'Wish sent to the universe ✨';
+  document.getElementById('cake-sub').textContent = 'I hope this year brings you joy you didn’t see coming.';
+  document.getElementById('cake-hint').textContent = 'Pfffft! Candle out. Wish launched. Birthday magic activated. 💗';
+  document.getElementById('mic-status').textContent = 'The candle has been blown out. Your wish is on its way. ✨';
+  document.getElementById('mic-blow-btn').style.display = 'none';
+  document.getElementById('cake-next').style.display = 'inline-block';
+
+  playBlowSound();
+  playBirthdayMusic();
+}
+
+async function startBlowDetection() {
+  if (candleBlown) return;
+
+  const status = document.getElementById('mic-status');
+
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+    status.textContent = 'This browser cannot use the microphone here — tap the cake instead. 💗';
+    return;
+  }
+
+  try {
+    status.textContent = 'Allow microphone access, then blow gently toward your device. Tap the cake anytime instead. 🌬️';
+
+    micStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    const ctx = new AudioContextClass();
+    const source = ctx.createMediaStreamSource(micStream);
+    const analyser = ctx.createAnalyser();
+
+    analyser.fftSize = 512;
+    source.connect(analyser);
+
+    const data = new Uint8Array(analyser.fftSize);
+    let baseline = 0;
+    let samples = 0;
+
+    function listen() {
+      if (candleBlown) {
+        ctx.close().catch(() => {});
+        return;
+      }
+
+      analyser.getByteTimeDomainData(data);
+
+      let sum = 0;
+
+      for (let i = 0; i < data.length; i++) {
+        const value = (data[i] - 128) / 128;
+        sum += value * value;
+      }
+
+      const rms = Math.sqrt(sum / data.length);
+
+      if (samples < 18) {
+        baseline += rms;
+        samples++;
+        status.textContent = 'Listening… now blow toward the microphone! 🌬️';
+      } else if (rms > Math.max(0.025, (baseline / samples) * 2.0)) {
+        status.textContent = 'I heard that birthday breath! 🎂';
+        blowCandle();
+        ctx.close().catch(() => {});
+        return;
+      }
+
+      micFrame = requestAnimationFrame(listen);
+    }
+
+    listen();
+  } catch (error) {
+    status.textContent = 'No worries — microphone access is optional. Tap the cake to blow the candle out. 💗';
+  }
+}
+
+document.getElementById('cake-body').addEventListener('keydown', event => {
+  if (event.key === 'Enter' || event.key === ' ') {
+    event.preventDefault();
+    blowCandle();
+  }
+});
+
+const compliments = [
+  ['Certified cutie. No appeals. 💗', 'fun'],
+  ['Your smile deserves its own fan club. 🥹', ''],
+  ['10/10 face. 100/10 soul. ✨', 'fun'],
+  ['My favorite notification. 💌', 'fun'],
+  ['I would pick you in every universe. 💫', ''],
+  ['Unfairly cute. Someone should investigate. 🕵️‍♀️', 'fun'],
+  ['Your heart is one of my favorite places. 💖', ''],
+  ['Main character energy, birthday edition. 👑', 'fun'],
+  ['You make far away feel a little less far. 🌎', ''],
+  ['Your laugh? Immediate serotonin. 😂', 'fun'],
+  ['You deserve kindness, rest, joy, and all the cake. 🎂', ''],
+  ['Birthday royalty. Please accept your crown. 👑', 'fun'],
+  ['I’m proud of you in ways I don’t say enough. 💗', ''],
+  ['If hugs could cross oceans, you’d be in trouble. 🤗', 'fun'],
+  ['You are enough, exactly as you are. 🌷', ''],
+  ['Beautiful human. Excellent human. My human. 💘', 'fun'],
+  ['I hope you see yourself through my eyes someday. 🥹', ''],
+  ['The universe did something right with you. ✨', ''],
+  ['Your saree look? A public service to beauty. 🌸', 'fun'],
+  ['You are loved on the easy days and the hard ones. 💞', ''],
+  ['Pretty face, kind heart, elite snack opinions. 😌', 'fun'],
+  ['I’m so lucky I get to love you. 💗', ''],
+  ['You deserve a whole sky full of good things. 🌌', ''],
+  ['A walking green flag with excellent hair energy. 🚦', 'fun'],
+  ['I hope today makes you feel as special as you are. 🎉', ''],
+  ['My heart has a favorite person. Spoiler: it’s you. 💝', ''],
+  ['Too cute. This is becoming a workplace safety issue. 🚨', 'fun'],
+  ['You don’t need to be perfect to be precious to me. 🌷', ''],
+  ['One of my favorite things about life is that you’re in it. 💕', ''],
+  ['The birthday girl has officially won at being adorable. 🏆', 'fun'],
+  ['I hope you feel cherished in a hundred little ways today. 🌷', ''],
+  ['You make the world softer just by being in it. 💗', ''],
+  ['No distance can make you less adored. 🌎', ''],
+  ['You deserve love that feels safe, steady, and joyful. 🫶', ''],
+  ['My favorite kind of beautiful is you being yourself. ✨', '']
+];
+
+const layer = document.getElementById('compliment-layer');
+
+function clearShower() {
+  complimentTimers.forEach(clearInterval);
+  complimentTimers = [];
+
+  if (revealTimer) {
+    clearTimeout(revealTimer);
+  }
+
+  layer.innerHTML = '';
+}
+
+function dropCompliment() {
+  const item = compliments[Math.floor(Math.random() * compliments.length)];
+
+  const el = document.createElement('div');
+  el.className = 'compliment ' + item[1];
+  el.textContent = item[0];
+  el.style.left = (3 + Math.random() * 66) + 'vw';
+  el.style.top = (60 + Math.random() * 34) + 'vh';
+  el.style.setProperty('--tilt', (Math.random() * 16 - 8) + 'deg');
+
+  layer.appendChild(el);
+  setTimeout(() => el.remove(), 3300);
+
+  if (Math.random() < 0.72) {
+    const emojis = ['💗', '💖', '💕', '💘', '💝', '✨', '🌸', '🥹', '🎉', '🫶', '🌷', '💫', '❤️', '😘', '🎂', '👑'];
+    const heart = document.createElement('div');
+
+    heart.className = 'compliment';
+    heart.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    heart.style.left = (Math.random() * 90) + 'vw';
+    heart.style.top = (63 + Math.random() * 30) + 'vh';
+    heart.style.fontSize = (1.5 + Math.random() * 1.6) + 'rem';
+
+    layer.appendChild(heart);
+    setTimeout(() => heart.remove(), 3300);
+  }
+}
+
+function beginLoveAvalanche() {
+  clearShower();
+
+  document.getElementById('final-letter').classList.remove('show');
+  document.getElementById('final-title').textContent = 'YES. ALL OF THIS LOVE IS FOR YOU. 💗';
+  document.getElementById('final-sub').textContent = 'Compliments! Hearts! Sparkles! You cannot stop this. Well, you can, but why would you?';
+  document.getElementById('final-sub').style.display = 'block';
+
+  dropCompliment();
+
+  const shower = setInterval(dropCompliment, 190);
+  complimentTimers.push(shower);
+
+  revealTimer = setTimeout(() => {
+    clearInterval(shower);
+
+    document.getElementById('final-title').textContent = 'And now, one little letter from my heart. 💌';
+    document.getElementById('final-sub').style.display = 'none';
+    document.getElementById('final-letter').classList.add('show');
+
+    setTimeout(() => {
+      layer.innerHTML = '';
+    }, 3000);
+  }, 6500);
+}
+
+function replayCompliments() {
+  beginLoveAvalanche();
+}
+
+function updateBirthdayTimer() {
+  // Midnight at the start of 28 October in India Standard Time.
+  const target = new Date('2026-10-28T00:00:00+05:30').getTime();
+  const el = document.getElementById('birthday-timer');
+
+  if (!el) return;
+
+  let remaining = target - Date.now();
+
+  if (remaining <= 0) {
+    el.textContent = 'IT’S YOUR BIRTHDAY! 🎉';
+    return;
+  }
+
+  const days = Math.floor(remaining / 86400000);
+  remaining %= 86400000;
+
+  const hours = Math.floor(remaining / 3600000);
+  remaining %= 3600000;
+
+  const minutes = Math.floor(remaining / 60000);
+  remaining %= 60000;
+
+  const seconds = Math.floor(remaining / 1000);
+
+  el.textContent =
+    (days ? days + 'd ' : '') +
+    String(hours).padStart(2, '0') + 'h ' +
+    String(minutes).padStart(2, '0') + 'm ' +
+    String(seconds).padStart(2, '0') + 's';
+}
+
+updateBirthdayTimer();
+window.setInterval(updateBirthdayTimer, 1000);
+</script>
+
+</body>
+</html>
